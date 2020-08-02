@@ -1,0 +1,7 @@
+version: '3'
+services:
+  comfysub:
+    image: bpazy/padavan_exporter:latest
+    restart: always
+    ports:
+      - "9100:9100"
