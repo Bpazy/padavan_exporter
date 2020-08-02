@@ -9,3 +9,11 @@ Name     | Description
 padavan_load1 | CPU 1min load average from '/system_status_data.asp'. 
 padavan_load5 | CPU 5min load average from '/system_status_data.asp'. 
 padavan_load15 | CPU 15min load average from '/system_status_data.asp'. 
+
+## 已知问题
+1. padavan_exporter 运行时会占用登录用户，此时其他设备无法访问 Padavan 控制台。
+
+## 支持计划
+- [x] CPU Load average
+- [ ] 网络流量（瞬时流量、总流量）
+- [ ] 当前连接设备数
