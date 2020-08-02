@@ -10,6 +10,22 @@ padavan_load1 | CPU 1min load average from '/system_status_data.asp'.
 padavan_load5 | CPU 5min load average from '/system_status_data.asp'. 
 padavan_load15 | CPU 15min load average from '/system_status_data.asp'. 
 
+## 使用方法
+```shell
+$ ./padavan_exporter --help
+Flags:
+  --help                        Show context-sensitive help (also try
+                                --help-long and --help-man).
+  --web.listen-address=":9100"  Address on which to expose metrics and web
+                                interface
+  --padavan.host="http://192.168.31.1"
+                                Padavan address
+  --padavan.username="admin"    Padavan username
+  --padavan.password="admin"    Padavan password
+```
+### Grafana 预览
+![1](https://user-images.githubusercontent.com/9838749/89121355-c6c10700-d4f0-11ea-92db-499de60bc027.png)
+
 ## 已知问题
 1. padavan_exporter 运行时会占用登录用户，此时其他设备无法访问 Padavan 控制台。
 
