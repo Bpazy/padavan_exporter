@@ -9,6 +9,7 @@ Name     | Description
 padavan_load1 | CPU 1min load average from '/system_status_data.asp'. 
 padavan_load5 | CPU 5min load average from '/system_status_data.asp'. 
 padavan_load15 | CPU 15min load average from '/system_status_data.asp'. 
+padavan_online_devices_num | Online devices number from '/lan_clients.asp'. 
 
 ## 使用方法
 ```shell
