@@ -5,3 +5,4 @@ services:
     restart: always
     ports:
       - "9100:9100"
+#    command: ["--help"]
