@@ -3,16 +3,15 @@ package main
 import (
 	"github.com/go-resty/resty/v2"
 	"gopkg.in/alecthomas/kingpin.v2"
-	"log"
 	"net/http"
 	"regexp"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	log "github.com/sirupsen/logrus"
 )
 
 var (
@@ -47,7 +46,14 @@ func init() {
 	ph = kingpin.Flag("padavan.host", "Padavan address").Default("http://192.168.31.1").String()
 	pu = kingpin.Flag("padavan.username", "Padavan username").Default("admin").String()
 	pp = kingpin.Flag("padavan.password", "Padavan password").Default("admin").String()
+	isDebug := kingpin.Flag("debug", "Debug mode").Bool()
 	kingpin.Parse()
+
+	if *isDebug {
+		log.SetLevel(log.DebugLevel)
+	}
+
+	log.Debugf("web.listen-address(%s) padavan.host(%s) padavan.username(%s) padavan.password(%s)", *la, *ph, *pu, *pp)
 
 	client.SetBasicAuth(*pu, *pp)
 	client.SetDisableWarn(true)
@@ -70,7 +76,7 @@ func checkPadavan() {
 	if err != nil {
 		log.Fatalf("Connecting padava failed. Please check \"padavan.host\".")
 	}
-	if strings.Contains(res.String(), "401") {
+	if res.StatusCode() != http.StatusOK {
 		log.Fatalf("Authenticate failed. Please check \"padavan.username\" and \"padavan.password\".")
 	}
 }
