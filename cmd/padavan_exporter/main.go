@@ -28,6 +28,10 @@ var (
 		Name: "padavan_load15",
 		Help: "Padavan 15 min load",
 	})
+	devicesNum = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "padavan_online_devices_num",
+		Help: "Padavan online devices number",
+	})
 	ph *string // Padavan address
 	pu *string // Padavan username
 	pp *string // Padavan password
@@ -73,11 +77,12 @@ func checkPadavan() {
 
 func recordMetrics() {
 	lReg := regexp.MustCompile("(\\d+\\.\\d+) (\\d+\\.\\d+) (\\d+\\.\\d+)")
+	// CPU load average
 	go func() {
 		for {
 			res, err := client.R().Get(getSystemStatusDataUrl())
 			if err != nil {
-				log.Printf("request system_status_data failed: %+v\n", err)
+				log.Printf("request %s failed: %+v\n", getSystemStatusDataUrl(), err)
 				time.Sleep(2 * time.Second)
 				continue
 			}
@@ -89,6 +94,27 @@ func recordMetrics() {
 			time.Sleep(2 * time.Second)
 		}
 	}()
+
+	dReg := regexp.MustCompile("\\[.+?]")
+	// Device number
+	go func() {
+		for {
+			res, err := client.R().Get(getLanClientsUrl())
+			if err != nil {
+				log.Printf("request %s failed: %+v\n", getLanClientsUrl(), err)
+				time.Sleep(2 * time.Second)
+				continue
+			}
+
+			devicesStr := dReg.FindAllString(res.String(), -1)
+			devicesNum.Set(float64(len(devicesStr)))
+			time.Sleep(2 * time.Second)
+		}
+	}()
+}
+
+func getLanClientsUrl() string {
+	return *ph + "/lan_clients.asp"
 }
 
 func getSystemStatusDataUrl() string {
