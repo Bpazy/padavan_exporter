@@ -24,6 +24,11 @@ Flags:
   --padavan.username="admin"    Padavan username
   --padavan.password="admin"    Padavan password
 ```
+### systemd
+如果你想要通过 systemd 来管理 padavan_exporter，请参考 [这篇文章](https://blog.csdn.net/hanziyuan08/article/details/107749078) 。
+### Docker Compose（推荐）
+当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
+
 ### Grafana 预览
 ![1](https://user-images.githubusercontent.com/9838749/89121355-c6c10700-d4f0-11ea-92db-499de60bc027.png)
 
