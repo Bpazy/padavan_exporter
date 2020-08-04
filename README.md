@@ -30,6 +30,6 @@ Flags:
 1. padavan_exporter 运行时会占用登录用户，此时其他设备无法访问 Padavan 控制台。
 
 ## 支持计划
-- [x] CPU Load average
-- [ ] 网络流量（瞬时流量、总流量）
+- [ ] 网络流量
+  1. 硬件 NAT 转发不经过 CPU，那 Padavan 接口返回的数据则不准确。关闭硬件 NAT 则性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html)；
 - [ ] 当前连接设备数
