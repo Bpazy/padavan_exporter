@@ -6,10 +6,9 @@
 ## Collectors
 Name     | Description
 ---------|-------------
-padavan_load1 | CPU 1min load average from '/system_status_data.asp'. 
-padavan_load5 | CPU 5min load average from '/system_status_data.asp'. 
-padavan_load15 | CPU 15min load average from '/system_status_data.asp'. 
-padavan_online_devices_num | Online devices number from '/lan_clients.asp'. 
+padavan_load1 | CPU 1min load average. 
+padavan_load5 | CPU 5min load average. 
+padavan_load15 | CPU 15min load average. 
 
 ## 使用方法
 ```shell
@@ -19,10 +18,13 @@ Flags:
                                 --help-long and --help-man).
   --web.listen-address=":9100"  Address on which to expose metrics and web
                                 interface
-  --padavan.host="http://192.168.31.1"
-                                Padavan address
-  --padavan.username="admin"    Padavan username
-  --padavan.password="admin"    Padavan password
+  --padavan.ssh.host="192.168.31.1:22"
+                                Padavan ssh host
+  --padavan.ssh.username="admin"
+                                Padavan ssh username
+  --padavan.ssh.password="admin"
+                                Padavan ssh password
+  --debug                       Debug mode
 ```
 ### systemd
 如果你想要通过 systemd 来管理 padavan_exporter，请参考 [这篇文章](https://blog.csdn.net/hanziyuan08/article/details/107749078) 。
