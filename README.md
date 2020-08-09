@@ -37,7 +37,7 @@ Flags:
                                 --help-long and --help-man).
   --web.listen-address=":9100"  Address on which to expose metrics and web
                                 interface
-  --padavan.ssh.host="192.168.31.1:22"
+  --padavan.ssh.host="127.0.0.1:22"
                                 Padavan ssh host
   --padavan.ssh.username="admin"
                                 Padavan ssh username
