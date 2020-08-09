@@ -20,7 +20,7 @@ var (
 
 func init() {
 	la = kingpin.Flag("web.listen-address", "Address on which to expose metrics and web interface").Default(":9100").String()
-	ph = kingpin.Flag("padavan.ssh.host", "Padavan ssh host").Default("192.168.31.1:22").String()
+	ph = kingpin.Flag("padavan.ssh.host", "Padavan ssh host").Default("127.0.0.1:22").String()
 	pu = kingpin.Flag("padavan.ssh.username", "Padavan ssh username").Default("admin").String()
 	pp = kingpin.Flag("padavan.ssh.password", "Padavan ssh password").Default("admin").String()
 	isDebug := kingpin.Flag("debug", "Debug mode").Bool()
