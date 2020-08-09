@@ -35,7 +35,9 @@ func init() {
 
 func main() {
 	reg := prometheus.NewPedanticRegistry()
-	reg.MustRegister(collector.NewLoadAverageCollector(initSshClient()))
+	sc := initSshClient()
+	reg.MustRegister(collector.NewLoadAverageCollector(sc))
+	reg.MustRegister(collector.NewNetDevController(sc))
 
 	gatherers := prometheus.Gatherers{reg}
 	h := promhttp.HandlerFor(gatherers, promhttp.HandlerOpts{

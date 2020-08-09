@@ -3,12 +3,31 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Bpazy_padavan_exporter&metric=alert_status)](https://sonarcloud.io/dashboard?id=Bpazy_padavan_exporter)
 [![Docker Pulls](https://img.shields.io/docker/pulls/bpazy/padavan_exporter)](https://hub.docker.com/r/bpazy/padavan_exporter)
 
+Prometheus Exporter for padavan metrics. Please do not spare any of your comments or suggestions. You can talk them in the Issue, or you can submit a Pull Request directly.
+
+这是适用于老毛子固件系统指标的 Prometheus Exporter。请不要吝啬您的任何意见或建议，你可以在 Issue 中讨论她们，也可以直接提交你的 Pull Request.
+
 ## Collectors
 Name     | Description
 ---------|-------------
 padavan_load1 | CPU 1min load average. 
 padavan_load5 | CPU 5min load average. 
 padavan_load15 | CPU 15min load average. 
+node_network_receive_bytes_total | Network device statistic receive_bytes.
+node_network_receive_compressed_total | Network device statistic receive_compressed.
+node_network_receive_errs_total | Network device statistic receive_errs.
+node_network_receive_fifo_total | Network device statistic receive_fifo.
+node_network_receive_frame_total | Network device statistic receive_frame.
+node_network_receive_multicast_total | Network device statistic receive_multicast.
+node_network_receive_packets_total | Network device statistic receive_packets.
+node_network_transmit_bytes_total | Network device statistic transmit_bytes.
+node_network_transmit_carrier_total | Network device statistic transmit_carrier.
+node_network_transmit_colls_total | Network device statistic transmit_colls.
+node_network_transmit_compressed_total | Network device statistic transmit_compressed.
+node_network_transmit_drop_total | Network device statistic transmit_drop.
+node_network_transmit_errs_total | Network device statistic transmit_errs.
+node_network_transmit_fifo_total | Network device statistic transmit_fifo.
+node_network_transmit_packets_total | Network device statistic transmit_packets.
 
 ## 使用方法
 ```shell
@@ -36,8 +55,7 @@ Flags:
 
 ## 已知问题
 1. padavan_exporter 运行时会占用登录用户，此时其他设备无法访问 Padavan 控制台。
+2. 当开启硬件 NAT 时，包转发不经过 CPU，导致统计数据则不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
 
 ## 支持计划
-- [ ] 网络流量
-  1. 硬件 NAT 转发不经过 CPU，那 Padavan 接口返回的数据则不准确。关闭硬件 NAT 则性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html)；
 - [ ] 当前连接设备数

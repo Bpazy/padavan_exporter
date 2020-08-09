@@ -6,26 +6,26 @@ import (
 	"strings"
 )
 
-type LoadAverageCollector struct {
+type loadAverageCollector struct {
 	metrics []*prometheus.Desc
 	sc      *ssh.Client
 }
 
-func (l *LoadAverageCollector) Describe(ch chan<- *prometheus.Desc) {
+func (l *loadAverageCollector) Describe(ch chan<- *prometheus.Desc) {
 	for _, metric := range l.metrics {
 		ch <- metric
 	}
 }
 
-func (l *LoadAverageCollector) Collect(ch chan<- prometheus.Metric) {
+func (l *loadAverageCollector) Collect(ch chan<- prometheus.Metric) {
 	splict := strings.Split(getContent(l.sc, "/proc/loadavg"), " ")
 	for i, metric := range l.metrics {
 		ch <- prometheus.MustNewConstMetric(metric, prometheus.GaugeValue, mustParseFloat(splict[i]))
 	}
 }
 
-func NewLoadAverageCollector(sc *ssh.Client) *LoadAverageCollector {
-	return &LoadAverageCollector{
+func NewLoadAverageCollector(sc *ssh.Client) *loadAverageCollector {
+	return &loadAverageCollector{
 		metrics: []*prometheus.Desc{
 			prometheus.NewDesc("node_load1", "1m load average.", nil, nil),
 			prometheus.NewDesc("node_load5", "5m load average.", nil, nil),
