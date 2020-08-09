@@ -55,6 +55,7 @@ Flags:
 
 ## 已知问题
 1. 当开启硬件 NAT 时，包转发不经过 CPU，网速统计数据不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
+2. Padavan 的文件系统是不可更改的（ tmpfs ），所以本程序目前运行在 ssh 方式。即需要在其他机器运行本程序，并通过 ssh 连接到 Padavan； 
 
 ## 支持计划
 - [ ] 当前连接设备数
