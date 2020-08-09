@@ -54,8 +54,7 @@ Flags:
 ![1](https://user-images.githubusercontent.com/9838749/89121355-c6c10700-d4f0-11ea-92db-499de60bc027.png)
 
 ## 已知问题
-1. padavan_exporter 运行时会占用登录用户，此时其他设备无法访问 Padavan 控制台。
-2. 当开启硬件 NAT 时，包转发不经过 CPU，导致统计数据则不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
+1. 当开启硬件 NAT 时，包转发不经过 CPU，导致统计数据则不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
 
 ## 支持计划
 - [ ] 当前连接设备数
