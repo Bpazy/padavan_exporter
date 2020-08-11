@@ -20,7 +20,7 @@ type netDevCollector struct {
 }
 
 func (n *netDevCollector) Describe(ch chan<- *prometheus.Desc) {
-
+	// metrics created when Collect
 }
 
 func (n *netDevCollector) Collect(ch chan<- prometheus.Metric) {
