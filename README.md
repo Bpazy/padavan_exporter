@@ -13,6 +13,7 @@ Name     | Description
 padavan_load1 | CPU 1min load average. 
 padavan_load5 | CPU 5min load average. 
 padavan_load15 | CPU 15min load average. 
+node_cpu_seconds_total | Seconds the cpus spent in each mode.
 node_network_receive_bytes_total | Network device statistic receive_bytes.
 node_network_receive_compressed_total | Network device statistic receive_compressed.
 node_network_receive_errs_total | Network device statistic receive_errs.
