@@ -18,6 +18,7 @@ type cpuCollector struct {
 }
 
 func (s *cpuCollector) Describe(ch chan<- *prometheus.Desc) {
+	// metrics created when Collect
 }
 
 func (s *cpuCollector) Collect(ch chan<- prometheus.Metric) {
