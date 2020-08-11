@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	procStatReg = regexp.MustCompile("(cpu.+?)\\s+(\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+)")
+	procStatReg = regexp.MustCompile("(cpu.+?) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+) (\\d+)")
 )
 
 type cpuCollector struct {
@@ -23,14 +23,13 @@ func (s *cpuCollector) Describe(ch chan<- *prometheus.Desc) {
 
 func (s *cpuCollector) Collect(ch chan<- prometheus.Metric) {
 	scanner := bufio.NewScanner(strings.NewReader(getContent(s.sc, "/proc/stat")))
-	scanner.Scan()
 
 	for scanner.Scan() {
 		parts := procStatReg.FindStringSubmatch(scanner.Text())
 		if len(parts) != 12 {
 			continue
 		}
-		dev := parts[1]
+		dev := strings.TrimSpace(parts[1])
 		user := parts[2]
 		system := parts[3]
 		idle := parts[4]
