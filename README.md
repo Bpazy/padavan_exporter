@@ -52,7 +52,7 @@ Flags:
 当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
 
 ### Grafana 预览
-![1](https://user-images.githubusercontent.com/9838749/89121355-c6c10700-d4f0-11ea-92db-499de60bc027.png)
+![1](https://user-images.githubusercontent.com/9838749/90956338-3e62d000-e4b8-11ea-9859-185eb09f6820.jpg)
 
 ## 已知问题
 1. 当开启硬件 NAT 时，包转发不经过 CPU，网速统计数据不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
