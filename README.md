@@ -52,6 +52,8 @@ Flags:
 当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
 
 ### Grafana 预览
+Add dashboard by url: https://grafana.com/grafana/dashboards/15978
+
 ![1](https://user-images.githubusercontent.com/9838749/90956338-3e62d000-e4b8-11ea-9859-185eb09f6820.jpg)
 
 ## 已知问题
