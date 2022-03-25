@@ -54,7 +54,8 @@ Flags:
 ### Grafana 预览
 Add dashboard by url: https://grafana.com/grafana/dashboards/15978
 
-![1](https://user-images.githubusercontent.com/9838749/90956338-3e62d000-e4b8-11ea-9859-185eb09f6820.jpg)
+![asd](https://user-images.githubusercontent.com/9838749/160107401-1afbcb8a-8338-476a-8f0e-ed7d801e37b7.png)
+
 
 ## 已知问题
 1. 当开启硬件 NAT 时，包转发不经过 CPU，网速统计数据不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
