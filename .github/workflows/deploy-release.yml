@@ -5,7 +5,7 @@ on:
 name: Handle Release
 
 jobs:
-  build:
+  deploy-release:
     name: Create release-artifacts
     runs-on: ubuntu-latest
     steps:
