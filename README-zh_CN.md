@@ -8,7 +8,6 @@
 这是适用于老毛子固件系统指标的 Prometheus Exporter。请不要吝啬您的任何意见或建议，你可以在 Issue 中讨论她们，也可以直接提交你的 Pull Request.
 
 ## Collectors
-
 | Name                                   | Description                                   |
 |----------------------------------------|-----------------------------------------------|
 | padavan_load1                          | CPU 1min load average.                        | 
@@ -32,7 +31,6 @@
 | node_network_transmit_packets_total    | Network device statistic transmit_packets.    |
 
 ## 使用方法
-
 ```shell
 $ ./padavan_exporter --help
 Flags:

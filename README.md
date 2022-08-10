@@ -32,8 +32,7 @@ in the Issue, or you can submit a Pull Request directly.
 | node_network_transmit_fifo_total       | Network device statistic transmit_fifo.       |
 | node_network_transmit_packets_total    | Network device statistic transmit_packets.    |
 
-## 使用方法
-
+## Usage
 ```shell
 $ ./padavan_exporter --help
 Flags:
@@ -49,20 +48,21 @@ Flags:
                                 Padavan ssh password
   --debug                       Debug mode
 ```
-### systemd
-如果你想要通过 systemd 来管理 padavan_exporter，请参考 [这篇文章](https://blog.csdn.net/hanziyuan08/article/details/107749078) 。
-### Docker Compose（推荐）
-当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
 
-### Grafana 预览
+### systemd
+If you want to manager padavan_exporter by systemd, [Refer This](https://blog.csdn.net/hanziyuan08/article/details/107749078).
+### Docker Compose（Recommend）
+Of course the best practice is Docker Compose. You can refer to the preset [docker-compose.yml](./docker-compose.yml).
+
+### Grafana Preview
 Add dashboard by url: https://grafana.com/grafana/dashboards/15978
 
 ![asd](https://user-images.githubusercontent.com/9838749/160107401-1afbcb8a-8338-476a-8f0e-ed7d801e37b7.png)
 
 
-## 已知问题
+## Known Issues
 1. When the hardware NAT is enabled, the packet forwarding does not pass through the CPU, and the network speed statistics are inaccurate. If the hardware NAT is turned off, the performance will be degraded.[(Reference)](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
 2. Padavan's file system is immutable (TMPFS), so this program is currently running in SSH mode. That is, you need to run this program on other machines and connect to padavan through SSH； 
 
-## 支持计划
+## Plans
 - [ ] Number of devices currently connected.
