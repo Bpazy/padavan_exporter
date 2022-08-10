@@ -61,8 +61,8 @@ Add dashboard by url: https://grafana.com/grafana/dashboards/15978
 
 
 ## Known Issues
-1. When the hardware NAT is enabled, the packet forwarding does not pass through the CPU, and the network speed statistics are inaccurate. If the hardware NAT is turned off, the performance will be degraded.[(Reference)](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
-2. Padavan's file system is immutable (TMPFS), so this program is currently running in SSH mode. That is, you need to run this program on other machines and connect to padavan through SSH； 
+1. When the hardware NAT is enabled, the packet forwarding does not pass through the CPU, and the network speed statistics are inaccurate. If the hardware NAT is turned off, the performance will be degraded.[(Reference)](https://www.right.com.cn/forum/thread-4043290-1-1.html) ;  
+2. Padavan's file system is immutable (TMPFS), so this program is currently running in SSH mode. That is, you need to run this program on other machines and connect to padavan through SSH;  
 
 ## Plans
 - [ ] Number of devices currently connected.
