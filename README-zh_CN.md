@@ -8,27 +8,27 @@
 这是适用于老毛子固件系统指标的 Prometheus Exporter。请不要吝啬您的任何意见或建议，你可以在 Issue 中讨论她们，也可以直接提交你的 Pull Request.
 
 ## Collectors
-| Name                                   | Description                                   |
-|----------------------------------------|-----------------------------------------------|
-| padavan_load1                          | CPU 1min load average.                        | 
-| padavan_load5                          | CPU 5min load average.                        | 
-| padavan_load15                         | CPU 15min load average.                       | 
-| node_cpu_seconds_total                 | Seconds the cpus spent in each mode.          |
-| node_network_receive_bytes_total       | Network device statistic receive_bytes.       |
-| node_network_receive_compressed_total  | Network device statistic receive_compressed.  |
-| node_network_receive_errs_total        | Network device statistic receive_errs.        |
-| node_network_receive_fifo_total        | Network device statistic receive_fifo.        |
-| node_network_receive_frame_total       | Network device statistic receive_frame.       |
-| node_network_receive_multicast_total   | Network device statistic receive_multicast.   |
-| node_network_receive_packets_total     | Network device statistic receive_packets.     |
-| node_network_transmit_bytes_total      | Network device statistic transmit_bytes.      |
-| node_network_transmit_carrier_total    | Network device statistic transmit_carrier.    |
-| node_network_transmit_colls_total      | Network device statistic transmit_colls.      |
-| node_network_transmit_compressed_total | Network device statistic transmit_compressed. |
-| node_network_transmit_drop_total       | Network device statistic transmit_drop.       |
-| node_network_transmit_errs_total       | Network device statistic transmit_errs.       |
-| node_network_transmit_fifo_total       | Network device statistic transmit_fifo.       |
-| node_network_transmit_packets_total    | Network device statistic transmit_packets.    |
+| Name                                   | Description                 |
+|----------------------------------------|-----------------------------|
+| padavan_load1                          | CPU 1min 平均负载.              | 
+| padavan_load5                          | CPU 5min 平均负载.              | 
+| padavan_load15                         | CPU 15min 平均负载.             | 
+| node_cpu_seconds_total                 | 在每种模式下花费的CPU秒数              |
+| node_network_receive_bytes_total       | 网络设备统计 receive_bytes.       |
+| node_network_receive_compressed_total  | 网络设备统计 receive_compressed.  |
+| node_network_receive_errs_total        | 网络设备统计 receive_errs.        |
+| node_network_receive_fifo_total        | 网络设备统计 receive_fifo.        |
+| node_network_receive_frame_total       | 网络设备统计 receive_frame.       |
+| node_network_receive_multicast_total   | 网络设备统计 receive_multicast.   |
+| node_network_receive_packets_total     | 网络设备统计 receive_packets.     |
+| node_network_transmit_bytes_total      | 网络设备统计 transmit_bytes.      |
+| node_network_transmit_carrier_total    | 网络设备统计 transmit_carrier.    |
+| node_network_transmit_colls_total      | 网络设备统计 transmit_colls.      |
+| node_network_transmit_compressed_total | 网络设备统计 transmit_compressed. |
+| node_network_transmit_drop_total       | 网络设备统计 transmit_drop.       |
+| node_network_transmit_errs_total       | 网络设备统计 transmit_errs.       |
+| node_network_transmit_fifo_total       | 网络设备统计 transmit_fifo.       |
+| node_network_transmit_packets_total    | 网络设备统计 transmit_packets.    |
 
 ## 使用方法
 ```shell
