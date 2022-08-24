@@ -1,4 +1,4 @@
-module padavan_exporter
+module github.com/Bpazy/padavan_exporter
 
 go 1.18
 
