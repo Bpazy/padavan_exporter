@@ -1,13 +1,13 @@
 package main
 
 import (
+	"github.com/Bpazy/padavan_exporter/collector"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/crypto/ssh"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"net/http"
-	"padavan_exporter/collector"
 	"time"
 )
 
