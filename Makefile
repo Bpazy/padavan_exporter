@@ -4,10 +4,13 @@ VERSION=$(shell git describe --tags || echo "unknownversion")
 GOBUILD=CGO_ENABLED=0 go build
 CMDPATH=./cmd/padavan_exporter
 
-all: linux-amd64 darwin-amd64 freebsd-amd64 windows-amd64 # Most used
+all: linux-amd64 darwin-amd64 darwin-arm64 freebsd-amd64 windows-amd64 # Most used
 
 darwin-amd64:
 	GOARCH=amd64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@-$(VERSION) $(CMDPATH)
+
+darwin-arm64:
+	GOARCH=arm64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(FULLNAME) $(CMDPATH)
 
 linux-amd64:
 	GOARCH=amd64 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@-$(VERSION) $(CMDPATH)
