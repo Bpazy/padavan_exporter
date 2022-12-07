@@ -30,8 +30,10 @@ jobs:
         run: make
 
       - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: svenstaro/upload-release-action@v2
         with:
-          args: 'bin/*'
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: bin/*
+          overwrite: true
+          file_glob: true
+          tag: ${{ github.ref }}
