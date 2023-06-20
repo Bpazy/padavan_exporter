@@ -1,8 +1,8 @@
 version: '3'
 services:
-  comfysub:
-    image: bpazy/padavan_exporter:latest
-    restart: always
-    ports:
-      - "9100:9100"
-#    command: ["--help"]
+ padavan_exporter:
+  image: bpazy/padavan_exporter:latest
+  restart: always
+  ports:
+      - "9101:9100"
+  command: ["--padavan.ssh.host=192.168.1.1:22", "--padavan.ssh.username=admin", "--padavan.ssh.password=PASSWORD"]
