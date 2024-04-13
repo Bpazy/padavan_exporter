@@ -44,7 +44,7 @@ func (n *netDevCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func parseNetDevStats(sc *ssh.Client) map[string]map[string]string {
-	scanner := bufio.NewScanner(strings.NewReader(getContent(sc, "/proc/net/dev")))
+	scanner := bufio.NewScanner(strings.NewReader(mustGetContent(sc, "/proc/net/dev")))
 	// Skip first line
 	scanner.Scan()
 	scanner.Scan()

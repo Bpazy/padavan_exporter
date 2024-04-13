@@ -22,7 +22,7 @@ func (s *cpuCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (s *cpuCollector) Collect(ch chan<- prometheus.Metric) {
-	scanner := bufio.NewScanner(strings.NewReader(getContent(s.sc, "/proc/stat")))
+	scanner := bufio.NewScanner(strings.NewReader(mustGetContent(s.sc, "/proc/stat")))
 
 	for scanner.Scan() {
 		parts := procStatReg.FindStringSubmatch(scanner.Text())

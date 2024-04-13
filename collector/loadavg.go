@@ -18,7 +18,7 @@ func (l *loadAverageCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (l *loadAverageCollector) Collect(ch chan<- prometheus.Metric) {
-	splict := strings.Split(getContent(l.sc, "/proc/loadavg"), " ")
+	splict := strings.Split(mustGetContent(l.sc, "/proc/loadavg"), " ")
 	for i, metric := range l.metrics {
 		ch <- prometheus.MustNewConstMetric(metric, prometheus.GaugeValue, mustParseFloat(splict[i]))
 	}
