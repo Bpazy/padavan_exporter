@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/Bpazy/padavan_exporter/collector"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -47,6 +48,10 @@ func main() {
 	})
 	http.HandleFunc("/metrics", func(w http.ResponseWriter, r *http.Request) {
 		h.ServeHTTP(w, r)
+	})
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		b := ` <html> <head> <title>webhook-forwarder</title> </head> <body> <span>Here is <a href="https://github.com/Bpazy/padavan_exporter">padavan_exporter</a></span> </body> </html>`
+		_, _ = fmt.Fprintln(w, b)
 	})
 
 	log.Printf("Start server at %s", *la)
