@@ -1,7 +1,7 @@
 version: '3'
 services:
  padavan_exporter:
-  image: bpazy/padavan_exporter:latest
+  image: ghcr.io/bpazy/padavan_exporter:arm64-master
   restart: always
   ports:
       - "9101:9100"
