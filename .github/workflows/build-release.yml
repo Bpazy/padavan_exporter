@@ -1,0 +1,26 @@
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - '*'
+name: Handle Release
+
+jobs:
+  build:
+    name: Create release-artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.22
+      - run: make
+      - name: Upload the artifacts
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: bin/*
+          overwrite: true
+          file_glob: true
+          tag: ${{ github.ref }}
