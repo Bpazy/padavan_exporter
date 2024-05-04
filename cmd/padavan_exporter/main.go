@@ -50,7 +50,7 @@ func main() {
 		h.ServeHTTP(w, r)
 	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		b := ` <html> <head> <title>webhook-forwarder</title> </head> <body> <span>Here is <a href="https://github.com/Bpazy/padavan_exporter">padavan_exporter</a></span> </body> </html>`
+		b := ` <html> <head> <title>padavan_exporter</title> </head> <body> <span>Here is <a href="https://github.com/Bpazy/padavan_exporter">padavan_exporter</a></span> </body> </html>`
 		_, _ = fmt.Fprintln(w, b)
 	})
 
