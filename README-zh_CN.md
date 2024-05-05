@@ -57,10 +57,10 @@ Flags:
 ### Docker Compose（推荐）
 当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
 
-### Grafana 预览
-通过这个 URL 添加 Dashboard: https://grafana.com/grafana/dashboards/15978
+### Grafana 面板
+通过这个 URL 导入 Dashboard: https://grafana.com/grafana/dashboards/15978
 
-![asd](https://user-images.githubusercontent.com/9838749/160107401-1afbcb8a-8338-476a-8f0e-ed7d801e37b7.png)
+![image](https://github.com/Bpazy/padavan_exporter/assets/9838749/d5769689-47a6-41bd-b859-d168fd19ec50)
 
 
 ## 已知问题
