@@ -74,11 +74,17 @@ func (m *memoryCollector) Collect(ch chan<- prometheus.Metric) {
 				desc = prometheus.NewDesc("node_memory_free_bytes", "Free memory in bytes.", nil, nil)
 				m.metrics["MemFree"] = desc
 			}
-		case "MemAvailable":
-			desc, ok = m.metrics["MemAvailable"]
+		case "Buffers":
+			desc, ok = m.metrics["Buffers"]
 			if !ok {
-				desc = prometheus.NewDesc("node_memory_available_bytes", "Available memory in bytes.", nil, nil)
-				m.metrics["MemAvailable"] = desc
+				desc = prometheus.NewDesc("node_memory_buffers_bytes", "Buffers memory in bytes.", nil, nil)
+				m.metrics["Buffers"] = desc
+			}
+		case "Cached":
+			desc, ok = m.metrics["Cached"]
+			if !ok {
+				desc = prometheus.NewDesc("node_memory_cached_bytes", "Cached memory in bytes.", nil, nil)
+				m.metrics["Cached"] = desc
 			}
 		default:
 			continue // 如果不是我们关心的指标，则跳过当前行
