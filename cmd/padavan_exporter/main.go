@@ -61,13 +61,30 @@ func main() {
 	})
 	// 处理根路径请求，提供简单信息页面
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		b := ` <html> <head> <title>padavan_exporter</title> </head> <body> <span> Here is <a href="/metrics">/metrics</a> </span> <br><span>Here is <a href="https://github.com/Bpazy/padavan_exporter">padavan_exporter</a></span> </body> </html>`
-		_, _ = fmt.Fprintln(w, b)
+		_, _ = fmt.Fprintln(w, homePage())
 	})
 
 	log.Printf("Start server at %s", *la)
 	// 启动 HTTP 服务
 	log.Fatal(http.ListenAndServe(*la, nil))
+}
+
+func homePage() string {
+	return `
+<html>
+ <head> 
+  <title>padavan_exporter</title> 
+ </head> 
+ <body> 
+  <h2>padavan_exporter</h2> 
+  <span>See docs at <a href="https://github.com/Bpazy/padavan_exporter">https://github.com/Bpazy/padavan_exporter</a></span>  
+  <br>
+  <br>
+  <span> Useful endpoints: </span>
+  <br>
+  <span> <a href="/metrics">metrics</a> <span> - available service metrics </span>
+ </body>
+</html>`
 }
 
 // initSshClient 函数用于初始化并返回一个 SSH 客户端。
