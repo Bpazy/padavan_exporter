@@ -33,6 +33,10 @@
 | node_network_transmit_errs_total       | 网络设备统计 transmit_errs.       |
 | node_network_transmit_fifo_total       | 网络设备统计 transmit_fifo.       |
 | node_network_transmit_packets_total    | 网络设备统计 transmit_packets.    |
+| node_memory_buffers_bytes     | 内存信息 Buffers_bytes.    |
+| node_memory_cached_bytes     | 内存信息 field Cached_bytes.    |
+| node_memory_free_bytes     | 剩余内存 in bytes.    |
+| node_memory_total_bytes     | 总内存 in bytes.    |
 
 ## 使用方法
 ```shell
