@@ -34,6 +34,10 @@ Prometheus Exporter for padavan metrics. Please do not spare any of your comment
 | node_network_transmit_errs_total       | Network device statistic transmit_errs.       |
 | node_network_transmit_fifo_total       | Network device statistic transmit_fifo.       |
 | node_network_transmit_packets_total    | Network device statistic transmit_packets.    |
+| node_memory_buffers_bytes     | Memory information field Buffers_bytes.    |
+| node_memory_cached_bytes     | Memory information field Cached_bytes.    |
+| node_memory_free_bytes     | Free memory in bytes.    |
+| node_memory_total_bytes     | Total memory in bytes.    |
 
 ## Usage
 ```shell
