@@ -49,6 +49,7 @@ func main() {
 	reg.MustRegister(collector.NewNetDevController(sc))
 	reg.MustRegister(collector.NewCpuCollector(sc))
 	reg.MustRegister(collector.NewMemoryCollector(sc))
+	reg.MustRegister(collector.NewNetconnCollector(sc))
 
 	gatherers := prometheus.Gatherers{reg}
 	h := promhttp.HandlerFor(gatherers, promhttp.HandlerOpts{
