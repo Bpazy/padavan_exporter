@@ -18,21 +18,21 @@
 | padavan_load5                          | CPU 5min 平均负载.              | 
 | padavan_load15                         | CPU 15min 平均负载.             | 
 | node_cpu_seconds_total                 | 在每种模式下花费的CPU秒数              |
-| node_network_receive_bytes_total       | 网络设备统计 receive_bytes.       |
-| node_network_receive_compressed_total  | 网络设备统计 receive_compressed.  |
-| node_network_receive_errs_total        | 网络设备统计 receive_errs.        |
-| node_network_receive_fifo_total        | 网络设备统计 receive_fifo.        |
-| node_network_receive_frame_total       | 网络设备统计 receive_frame.       |
-| node_network_receive_multicast_total   | 网络设备统计 receive_multicast.   |
-| node_network_receive_packets_total     | 网络设备统计 receive_packets.     |
-| node_network_transmit_bytes_total      | 网络设备统计 transmit_bytes.      |
-| node_network_transmit_carrier_total    | 网络设备统计 transmit_carrier.    |
-| node_network_transmit_colls_total      | 网络设备统计 transmit_colls.      |
-| node_network_transmit_compressed_total | 网络设备统计 transmit_compressed. |
-| node_network_transmit_drop_total       | 网络设备统计 transmit_drop.       |
-| node_network_transmit_errs_total       | 网络设备统计 transmit_errs.       |
-| node_network_transmit_fifo_total       | 网络设备统计 transmit_fifo.       |
-| node_network_transmit_packets_total    | 网络设备统计 transmit_packets.    |
+| node_network_receive_bytes_total    | 网络接口接收到的字节总数。                                 |
+| node_network_receive_compressed_total| 网络接口接收到的压缩包总数。                               |
+| node_network_receive_errs_total     | 网络接口检测到的接收错误总数。                             |
+| node_network_receive_fifo_total     | 网络接口接收时FIFO缓冲区错误的总数。                       |
+| node_network_receive_frame_total    | 网络接口接收到的帧对齐错误总数。                           |
+| node_network_receive_multicast_total| 网络接口接收到的组播包总数。                              |
+| node_network_receive_packets_total  | 网络接口接收到的数据包总数。                              |
+| node_network_transmit_bytes_total   | 网络接口发送的字节总数。                                  |
+| node_network_transmit_carrier_total | 网络接口传输时检测到的载波错误总数。                       |
+| node_network_transmit_colls_total   | 网络接口传输时检测到的碰撞总数。                           |
+| node_network_transmit_compressed_total | 网络接口发送的压缩包总数。                              |
+| node_network_transmit_drop_total    | 网络接口传输时丢弃的数据包总数。                           |
+| node_network_transmit_errs_total    | 网络接口检测到的传输错误总数。                             |
+| node_network_transmit_fifo_total    | 网络接口传输时FIFO缓冲区错误的总数。                       |
+| node_network_transmit_packets_total | 网络接口发送的数据包总数。                                |
 | node_memory_buffers_bytes     | 内存信息 Buffers_bytes.    |
 | node_memory_cached_bytes     | 内存信息 field Cached_bytes.    |
 | node_memory_free_bytes     | 剩余内存 in bytes.    |
