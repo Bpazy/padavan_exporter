@@ -19,21 +19,21 @@ Prometheus Exporter for padavan metrics. Please do not spare any of your comment
 | padavan_load5                          | CPU 5min load average.                        | 
 | padavan_load15                         | CPU 15min load average.                       | 
 | node_cpu_seconds_total                 | Seconds the cpus spent in each mode.          |
-| node_network_receive_bytes_total       | Network device statistic receive_bytes.       |
-| node_network_receive_compressed_total  | Network device statistic receive_compressed.  |
-| node_network_receive_errs_total        | Network device statistic receive_errs.        |
-| node_network_receive_fifo_total        | Network device statistic receive_fifo.        |
-| node_network_receive_frame_total       | Network device statistic receive_frame.       |
-| node_network_receive_multicast_total   | Network device statistic receive_multicast.   |
-| node_network_receive_packets_total     | Network device statistic receive_packets.     |
-| node_network_transmit_bytes_total      | Network device statistic transmit_bytes.      |
-| node_network_transmit_carrier_total    | Network device statistic transmit_carrier.    |
-| node_network_transmit_colls_total      | Network device statistic transmit_colls.      |
-| node_network_transmit_compressed_total | Network device statistic transmit_compressed. |
-| node_network_transmit_drop_total       | Network device statistic transmit_drop.       |
-| node_network_transmit_errs_total       | Network device statistic transmit_errs.       |
-| node_network_transmit_fifo_total       | Network device statistic transmit_fifo.       |
-| node_network_transmit_packets_total    | Network device statistic transmit_packets.    |
+| node_network_receive_bytes_total     | Total number of bytes received by the network interface.                 |
+| node_network_receive_compressed_total| Total number of compressed packets received by the network interface.    |
+| node_network_receive_errs_total      | Total number of receive errors detected by the network interface.        |
+| node_network_receive_fifo_total      | Total number of FIFO buffer errors on receive by the network interface.  |
+| node_network_receive_frame_total     | Total number of frame alignment errors received by the network interface.|
+| node_network_receive_multicast_total | Total number of multicast packets received by the network interface.     |
+| node_network_receive_packets_total   | Total number of packets received by the network interface.               |
+| node_network_transmit_bytes_total    | Total number of bytes transmitted by the network interface.              |
+| node_network_transmit_carrier_total  | Total number of carrier errors while transmitting by the network interface. |
+| node_network_transmit_colls_total    | Total number of collisions detected while transmitting by the network interface. |
+| node_network_transmit_compressed_total | Total number of compressed packets transmitted by the network interface. |
+| node_network_transmit_drop_total     | Total number of packets dropped while transmitting by the network interface. |
+| node_network_transmit_errs_total     | Total number of transmit errors detected by the network interface.       |
+| node_network_transmit_fifo_total     | Total number of FIFO buffer errors on transmit by the network interface. |
+| node_network_transmit_packets_total  | Total number of packets transmitted by the network interface.            |
 | node_memory_buffers_bytes     | Memory information field Buffers_bytes.    |
 | node_memory_cached_bytes     | Memory information field Cached_bytes.    |
 | node_memory_free_bytes     | Free memory in bytes.    |
