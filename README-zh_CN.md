@@ -99,7 +99,8 @@ Flags:
 当然更好的方式是使用 Docker Compose，你可以参考本项目预置的 [docker-compose.yml](./docker-compose.yml) 文件。
 
 ### Grafana 面板
-通过这个 文件 导入 Dashboard: 15978_rev3.json
+通过这个 文件 导入 Dashboard: [15978_rev3.json](./15978_rev3.json)
+
 通过这个 URL 导入 Dashboard: https://grafana.com/grafana/dashboards/15978
 
 ![image](https://github.com/Bpazy/padavan_exporter/assets/9838749/d5769689-47a6-41bd-b859-d168fd19ec50)
