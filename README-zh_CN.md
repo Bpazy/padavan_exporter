@@ -103,6 +103,7 @@ Flags:
 
 ![image](https://github.com/Bpazy/padavan_exporter/assets/9838749/d5769689-47a6-41bd-b859-d168fd19ec50)
 
+通过这个 文件 导入 Dashboard: 15978_rev3.json
 
 ## 已知问题
 1. 当开启硬件 NAT 时，包转发不经过 CPU，网速统计数据不准确。若关闭硬件 NAT 则会导致性能下降[（参考论坛）](https://www.right.com.cn/forum/thread-4043290-1-1.html) ；
