@@ -100,6 +100,8 @@ If you want to manager padavan_exporter by systemd, [Refer This](https://blog.cs
 Of course the best practice is Docker Compose. You can refer to the preset [docker-compose.yml](./docker-compose.yml).
 
 ### Grafana dashboard
+Import dashboard by file: [15978_rev3.json](./15978_rev3.json)
+
 Import dashboard by url: https://grafana.com/grafana/dashboards/15978
 
 ![image](https://github.com/Bpazy/padavan_exporter/assets/9838749/892ed532-4430-4167-9ee7-ffddc6ef9dc6)
