@@ -3,7 +3,7 @@ package collector
 import (
 	"bufio"
 	"github.com/prometheus/client_golang/prometheus"
-	"golang.org/x/crypto/ssh"
+	log "github.com/sirupsen/logrus"
 	"regexp"
 	"strings"
 )
@@ -14,7 +14,6 @@ var (
 
 type cpuCollector struct {
 	metrics map[string]*prometheus.Desc
-	sc      *ssh.Client
 }
 
 func (s *cpuCollector) Describe(ch chan<- *prometheus.Desc) {
@@ -22,7 +21,13 @@ func (s *cpuCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (s *cpuCollector) Collect(ch chan<- prometheus.Metric) {
-	scanner := bufio.NewScanner(strings.NewReader(mustGetContent(s.sc, "/proc/stat")))
+	content, err := GetContent("/proc/stat")
+	if err != nil {
+		log.Errorf("cpu collector: %v", err)
+		return
+	}
+
+	scanner := bufio.NewScanner(strings.NewReader(content))
 
 	for scanner.Scan() {
 		parts := procStatReg.FindStringSubmatch(scanner.Text())
@@ -56,9 +61,8 @@ func (s *cpuCollector) Collect(ch chan<- prometheus.Metric) {
 	}
 }
 
-func NewCpuCollector(sc *ssh.Client) *cpuCollector {
+func NewCpuCollector() *cpuCollector {
 	return &cpuCollector{
-		sc:      sc,
 		metrics: map[string]*prometheus.Desc{},
 	}
 }

@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/prometheus/client_golang/prometheus"
-	"golang.org/x/crypto/ssh"
+	log "github.com/sirupsen/logrus"
 	"regexp"
 	"strings"
 )
@@ -16,7 +16,6 @@ var (
 
 type netDevCollector struct {
 	metrics map[string]*prometheus.Desc
-	sc      *ssh.Client
 }
 
 func (n *netDevCollector) Describe(ch chan<- *prometheus.Desc) {
@@ -24,7 +23,13 @@ func (n *netDevCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (n *netDevCollector) Collect(ch chan<- prometheus.Metric) {
-	netDev := parseNetDevStats(n.sc)
+	content, err := GetContent("/proc/net/dev")
+	if err != nil {
+		log.Errorf("netdev collector: %v", err)
+		return
+	}
+
+	netDev := parseNetDevStats(content)
 
 	for dev, devStats := range netDev {
 		for key, value := range devStats {
@@ -43,9 +48,9 @@ func (n *netDevCollector) Collect(ch chan<- prometheus.Metric) {
 	}
 }
 
-func parseNetDevStats(sc *ssh.Client) map[string]map[string]string {
-	scanner := bufio.NewScanner(strings.NewReader(mustGetContent(sc, "/proc/net/dev")))
-	// Skip first line
+func parseNetDevStats(content string) map[string]map[string]string {
+	scanner := bufio.NewScanner(strings.NewReader(content))
+	// Skip first header line
 	scanner.Scan()
 	scanner.Scan()
 
@@ -73,9 +78,8 @@ func parseNetDevStats(sc *ssh.Client) map[string]map[string]string {
 	return netDev
 }
 
-func NewNetDevController(sc *ssh.Client) *netDevCollector {
+func NewNetDevController() *netDevCollector {
 	return &netDevCollector{
-		sc:      sc,
 		metrics: map[string]*prometheus.Desc{},
 	}
 }

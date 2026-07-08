@@ -4,20 +4,13 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/prometheus/client_golang/prometheus"
-	"golang.org/x/crypto/ssh"
+	log "github.com/sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"regexp"
 	"strconv"
 	"strings"
 )
 
-/**
- * @Author: 南宫乘风
- * @Description:
- * @File:  netconn.go
- * @Email: 1794748404@qq.com
- * @Date: 2024-07-08 10:10
- */
 const (
 	namespace         = "node"
 	netStatsSubsystem = "netstat"
@@ -33,9 +26,8 @@ var (
 )
 
 type NetconnCollector struct {
-	metrics      map[string]*prometheus.Desc // Stores metric descriptions
-	sc           *ssh.Client                 // SSH client for remote data collection
-	fieldPattern *regexp.Regexp              // Regex for matching field names
+	metrics      map[string]*prometheus.Desc
+	fieldPattern *regexp.Regexp
 }
 
 func (c *NetconnCollector) Describe(ch chan<- *prometheus.Desc) {
@@ -43,11 +35,26 @@ func (c *NetconnCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (c *NetconnCollector) Collect(ch chan<- prometheus.Metric) {
-	netStats := parseNetStats(mustGetContent(c.sc, "/proc/net/netstat"))
-	snmpStats := parseNetStats(mustGetContent(c.sc, "/proc/net/snmp"))
-	snmp6Stats := parseSNMP6Stats(mustGetContent(c.sc, "/proc/net/snmp6"))
+	netStatsContent, err := GetContent("/proc/net/netstat")
+	if err != nil {
+		log.Errorf("netconn collector (netstat): %v", err)
+		return
+	}
+	snmpContent, err := GetContent("/proc/net/snmp")
+	if err != nil {
+		log.Errorf("netconn collector (snmp): %v", err)
+		return
+	}
+	snmp6Content, err := GetContent("/proc/net/snmp6")
+	if err != nil {
+		log.Errorf("netconn collector (snmp6): %v", err)
+		return
+	}
 
-	// Merge snmpStats and snmp6Stats into netStats
+	netStats := parseNetStats(netStatsContent)
+	snmpStats := parseNetStats(snmpContent)
+	snmp6Stats := parseSNMP6Stats(snmp6Content)
+
 	for k, v := range snmpStats {
 		netStats[k] = v
 	}
@@ -80,7 +87,6 @@ func (c *NetconnCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func parseNetStats(content string) map[string]map[string]string {
-	// 将字符串内容转换为 io.Reader
 	reader := strings.NewReader(content)
 	netStats := make(map[string]map[string]string)
 	scanner := bufio.NewScanner(reader)
@@ -128,10 +134,9 @@ func parseSNMP6Stats(content string) map[string]map[string]string {
 	return netStats
 }
 
-func NewNetconnCollector(sc *ssh.Client) *NetconnCollector {
+func NewNetconnCollector() *NetconnCollector {
 	pattern := regexp.MustCompile(*netStatFields)
 	return &NetconnCollector{
-		sc:           sc,
 		metrics:      map[string]*prometheus.Desc{},
 		fieldPattern: pattern,
 	}
