@@ -11,6 +11,13 @@ import (
 	"strings"
 )
 
+/**
+ * @Author: 南宫乘风
+ * @Description:
+ * @File:  netconn.go
+ * @Email: 1794748404@qq.com
+ * @Date: 2024-07-08 10:10
+ */
 const (
 	namespace         = "node"
 	netStatsSubsystem = "netstat"
@@ -26,8 +33,8 @@ var (
 )
 
 type NetconnCollector struct {
-	metrics      map[string]*prometheus.Desc
-	fieldPattern *regexp.Regexp
+	metrics      map[string]*prometheus.Desc // Stores metric descriptions
+	fieldPattern *regexp.Regexp              // Regex for matching field names
 }
 
 func (c *NetconnCollector) Describe(ch chan<- *prometheus.Desc) {
@@ -55,6 +62,7 @@ func (c *NetconnCollector) Collect(ch chan<- prometheus.Metric) {
 	snmpStats := parseNetStats(snmpContent)
 	snmp6Stats := parseSNMP6Stats(snmp6Content)
 
+	// Merge snmpStats and snmp6Stats into netStats
 	for k, v := range snmpStats {
 		netStats[k] = v
 	}
@@ -87,6 +95,7 @@ func (c *NetconnCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func parseNetStats(content string) map[string]map[string]string {
+	// 将字符串内容转换为 io.Reader
 	reader := strings.NewReader(content)
 	netStats := make(map[string]map[string]string)
 	scanner := bufio.NewScanner(reader)
