@@ -18,6 +18,8 @@ jobs:
       tag_name: ${{ steps.get_tag_name.outputs.tag_name }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Get tag name
         id: get_tag_name
         run: echo "tag_name=$(git tag --points-at | grep . || git branch --show-current)" >> $GITHUB_OUTPUT
